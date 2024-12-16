@@ -1,0 +1,58 @@
+
+public class Main {
+    public static void main(String[] args) {
+        // Bubble Sort: Descending Order by Power Level
+        System.out.println("*** Bubble Sort: Descending Order by Power Level ***");
+        String[] creatures = {"Dragon", "Phoenix", "Griffin", "Centaur", "Unicorn"};
+        int[] powerLevels = {95, 92, 88, 85, 78};
+        for (int i = 0; i < creatures.length - 1; i++) {
+            for (int j = 0; j < creatures.length - i - 1; j++) {
+                if (powerLevels[j] < powerLevels[j + 1]) {
+                    // Swap power levels
+                    int temp = powerLevels[j];
+                    powerLevels[j] = powerLevels[j + 1];
+                    powerLevels[j + 1] = temp;
+                    // Swap creatures
+                    String tempCreature = creatures[j];
+                    creatures[j] = creatures[j + 1];
+                    creatures[j + 1] = tempCreature;
+                }
+            }
+        }
+        for (int i = 0; i < creatures.length; i++) {
+            System.out.println(creatures[i] + " - " + powerLevels[i]);
+        }
+
+        // Selection Sort: Ascending Order by Power Level
+        System.out.println("*** Selection Sort: Ascending Order by Power Level ***");
+        creatures = new String[]{"Dragon", "Phoenix", "Griffin", "Centaur", "Unicorn"};
+        powerLevels = new int[]{95, 92, 88, 85, 78};
+        for (int i = 0; i < creatures.length - 1; i++) {
+            int minIndex = i;
+            for (int j = i + 1; j < creatures.length; j++) {
+                if (powerLevels[j] < powerLevels[minIndex]) {
+                    minIndex = j;
+                }
+            }
+            // Swap power levels
+            int temp = powerLevels[minIndex];
+            powerLevels[minIndex] = powerLevels[i];
+            powerLevels[i] = temp;
+            // Swap creatures
+            String tempCreature = creatures[minIndex];
+            creatures[minIndex] = creatures[i];
+            creatures[i] = tempCreature;
+        }
+        for (int i = 0; i < creatures.length; i++) {
+            System.out.println(creatures[i] + " - " + powerLevels[i]);
+        }
+
+        // Stack Implementation: Popping Creatures
+        System.out.println("*** Stack Implementation: Popping Creatures ***");
+        creatures = new String[]{"Dragon", "Phoenix", "Griffin", "Centaur", "Unicorn"};
+        powerLevels = new int[]{95, 92, 88, 85, 78};
+        for (int i = creatures.length - 1; i >= 0; i--) {
+            System.out.println("Popped: " + creatures[i] + " - " + powerLevels[i]);
+        }
+    }
+}
